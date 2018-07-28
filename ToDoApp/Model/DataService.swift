@@ -12,11 +12,9 @@ typealias JSON = Dictionary<AnyHashable, Any>
 
 class DataService {
     static let shared: DataService = DataService()
-    
-    private let urlString = "https://www.getpostman.com/collections/37f383ae4d51160d55eb"
-    
+        
     func getDataOfToDoList(complete: @escaping(ToDo) -> Void) {
-        guard let url = URL(string: urlString) else { return }
+        guard let url = URL(string: Constants.TO_DO_APP) else { return }
         let urlRequest = URLRequest(url: url)
         let task = URLSession.shared.dataTask(with: urlRequest) { (data, response, error) in
             guard error == nil else {
@@ -63,10 +61,11 @@ class DataService {
         task.resume()
     }
     
-    func pustData(task: Task) {
+    func postData(urlString: String, task: Task) {
+        print(urlString)
         let parameters = task.toAnyObject()
         print(parameters)
-        guard let url = URL(string: "http://150.95.111.30:4444/api/add") else { return }
+        guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -78,7 +77,7 @@ class DataService {
             if let response = response {
                 print(response)
             }
-            
+        
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
@@ -91,50 +90,19 @@ class DataService {
             }.resume()
     }
     
-    func updateData(task: Task) {
-        let parameters = task.toAnyObject()
-        print(parameters)
-        guard let url = URL(string: "http://150.95.111.30:4444/api/update/\(task._id)") else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else { return }
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        session.dataTask(with: request) { (data, response, error) in
-            if let response = response {
-                print(response)
-            }
-            
-            if let data = data {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
-                } catch {
-                    print(error)
-                }
-            }
-            
-            }.resume()
-    }
-    
-    func deleteData(task: Task) {
-        print(task._id)
-        guard let url = URL(string: "http://150.95.111.30:4444/api/delete/\(task._id)") else { return }
+    func deleteData(urlString: String) {
+        guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         let session = URLSession.shared
         session.dataTask(with: request) { (data, response, error) in
             guard let _ = data else {
-                print("error calling DELETE on /todos/1")
+                print("error calling DELETE")
                 return
             }
             print("DELETE ok")
         }.resume()
-
     }
-
 
 }

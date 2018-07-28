@@ -17,6 +17,7 @@
 		844FCAA0210CD8AF001A48BE /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FCA9F210CD8AF001A48BE /* ToDo.swift */; };
 		844FCAA2210CDA58001A48BE /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FCAA1210CDA58001A48BE /* Task.swift */; };
 		844FCAA6210CE402001A48BE /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FCAA5210CE402001A48BE /* ToDoTableViewController.swift */; };
+		844FCAA8210D0E3C001A48BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844FCAA7210D0E3C001A48BE /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		844FCA9F210CD8AF001A48BE /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		844FCAA1210CDA58001A48BE /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		844FCAA5210CE402001A48BE /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		844FCAA7210D0E3C001A48BE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				844FCA9F210CD8AF001A48BE /* ToDo.swift */,
 				844FCA9D210CD6C1001A48BE /* Request.swift */,
 				844FCAA1210CDA58001A48BE /* Task.swift */,
+				844FCAA7210D0E3C001A48BE /* Constants.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				844FCAA2210CDA58001A48BE /* Task.swift in Sources */,
 				844FCAA6210CE402001A48BE /* ToDoTableViewController.swift in Sources */,
 				844FCAA0210CD8AF001A48BE /* ToDo.swift in Sources */,
+				844FCAA8210D0E3C001A48BE /* Constants.swift in Sources */,
 				844FCA9E210CD6C1001A48BE /* Request.swift in Sources */,
 				843FB8B2210C85EA005FD200 /* ToDoViewController.swift in Sources */,
 				843FB8B0210C85EA005FD200 /* AppDelegate.swift in Sources */,

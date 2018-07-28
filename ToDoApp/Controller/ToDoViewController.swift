@@ -37,14 +37,16 @@ class ToDoViewController: UIViewController {
         guard let name = nameTextField.text else { return }
         let done = doneButton.isOn ? true : false
         print(done)
+        var urlString: String = ""
         if task == nil {
             task = Task(name: name, done: done)
-            DataService.shared.pustData(task: task!)
+            urlString = Constants.ADD
         } else {
             task?.name = name
             task?.done = done
-            DataService.shared.updateData(task: task!)
+            urlString = "\(Constants.UPDATE)\(task!._id)"
         }
+        DataService.shared.postData(urlString: urlString, task: task!)
         navigationController?.popViewController(animated: true)
     }
     
@@ -59,7 +61,7 @@ class ToDoViewController: UIViewController {
             owningNavigationController.popViewController(animated: true)
         }
         else {
-            fatalError("The MealViewController is not inside a navigation controller.")
+            fatalError("Error")
         }
     }
     
@@ -74,7 +76,9 @@ extension ToDoViewController: UITextFieldDelegate {
     
     // Hide save button
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        saveButton.isEnabled = false
+        if task == nil {
+            saveButton.isEnabled = false
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

@@ -10,36 +10,27 @@ import UIKit
 
 class ToDoTableViewController: UITableViewController {
 
-    let idForGet = "094a4511-1008-473e-b0e4-e43947351c62"
     var tasks: [Task] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
     }
     
-    // MARK: - Table view data source
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         loadData()
     }
     
     func loadData() {
-        DataService.shared.getDataOfToDoList { (toDo) in
-            let requests: [Request] = toDo.requests
-            for request in requests {
-                if request.id == self.idForGet {
-                    DataService.shared.getDataOfTask(urlString: request.url, complete: { (tasks) in
-                        print(tasks.count)
-                        self.tasks = tasks
-                        self.tableView.reloadData()
-                    })
-                }
-            }
-        }
+        DataService.shared.getDataOfTask(urlString: Constants.GET, complete: { (tasks) in
+            print(tasks.count)
+            self.tasks = tasks
+            self.tableView.reloadData()
+        })
     }
     
+    // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -64,7 +55,8 @@ class ToDoTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let task = tasks[indexPath.row]
-            DataService.shared.deleteData(task: task)
+            let urlString = "\(Constants.DELETE)\(task._id)"
+            DataService.shared.deleteData(urlString: urlString)
             tasks.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             loadData()
