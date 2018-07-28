@@ -12,6 +12,22 @@ class ToDoTableViewController: UITableViewController {
 
     var tasks: [Task] = []
 
+    // White View
+    @IBOutlet var noDataView: UIView!
+    @IBOutlet weak var footerView: UIView!
+    
+    // Check No Data
+    var hasNoData: Bool = false {
+        didSet {
+            tableView.backgroundView = hasNoData ? noDataView : footerView
+        }
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        hasNoData = tasks.count == 0
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -27,6 +43,7 @@ class ToDoTableViewController: UITableViewController {
             print(tasks.count)
             self.tasks = tasks
             self.tableView.reloadData()
+            self.hasNoData = tasks.count == 0
         })
     }
     

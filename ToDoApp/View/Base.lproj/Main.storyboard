@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -19,6 +20,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="uYV-JV-O41">
+                            <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="kqK-mh-Phh" detailTextLabel="PfD-vP-ySc" style="IBUITableViewCellStyleValue1" id="i97-ST-ZiE">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -60,8 +66,31 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="footerView" destination="uYV-JV-O41" id="CjN-J6-056"/>
+                        <outlet property="noDataView" destination="ND2-AL-oTD" id="9k7-gl-Kbd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0g-aU-D8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="ND2-AL-oTD">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="AcN-ee-giV">
+                            <rect key="frame" x="105" y="49" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="7eW-v3-cnl"/>
+                                <constraint firstAttribute="width" secondItem="AcN-ee-giV" secondAttribute="height" multiplier="1:1" id="iQ1-Gq-fFU"/>
+                            </constraints>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="AcN-ee-giV" firstAttribute="centerY" secondItem="ND2-AL-oTD" secondAttribute="centerY" id="7Ce-4I-euD"/>
+                        <constraint firstItem="AcN-ee-giV" firstAttribute="centerX" secondItem="ND2-AL-oTD" secondAttribute="centerX" id="Msw-We-pFE"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="7wn-mO-49a"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="121" y="108"/>
         </scene>
