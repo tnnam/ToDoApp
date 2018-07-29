@@ -10,8 +10,11 @@ import UIKit
 
 class Constants {
     static let TO_DO_APP = "https://www.getpostman.com/collections/37f383ae4d51160d55eb"
-    static let GET = "http://150.95.111.30:4444/api/all"
-    static let UPDATE = "http://150.95.111.30:4444/api/update/"
-    static let ADD = "http://150.95.111.30:4444/api/add"
-    static let DELETE = "http://150.95.111.30:4444/api/delete/"
+    
+    static let BASE = "http://150.95.111.30:4444/api/"
+    
+    static let GET = "\(Constants.BASE)all"
+    static let UPDATE = "\(Constants.BASE)update/"
+    static let ADD = "\(Constants.BASE)add"
+    static let DELETE = "\(Constants.BASE)delete/"
 }

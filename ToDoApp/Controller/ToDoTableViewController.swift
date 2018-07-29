@@ -17,7 +17,7 @@ class ToDoTableViewController: UITableViewController {
     @IBOutlet weak var footerView: UIView!
     
     // Check No Data
-    var hasNoData: Bool = false {
+    var hasNoData: Bool = true {
         didSet {
             tableView.backgroundView = hasNoData ? noDataView : footerView
         }

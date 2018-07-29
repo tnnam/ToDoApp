@@ -67,7 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				843FB8AF210C85EA005FD200 /* AppDelegate.swift */,
-				843FB8C1210C8600005FD200 /* Model */,
+				84ACCF4F210D8D2A008A4874 /* Base */,
+				843FB8C1210C8600005FD200 /* Models */,
 				843FB8C5210C8C3E005FD200 /* View */,
 				843FB8C4210C88D5005FD200 /* Controller */,
 				843FB8B8210C85EC005FD200 /* LaunchScreen.storyboard */,
@@ -77,16 +78,15 @@
 			path = ToDoApp;
 			sourceTree = "<group>";
 		};
-		843FB8C1210C8600005FD200 /* Model */ = {
+		843FB8C1210C8600005FD200 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				843FB8C2210C8618005FD200 /* DataService.swift */,
 				844FCA9F210CD8AF001A48BE /* ToDo.swift */,
 				844FCA9D210CD6C1001A48BE /* Request.swift */,
 				844FCAA1210CDA58001A48BE /* Task.swift */,
-				844FCAA7210D0E3C001A48BE /* Constants.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		843FB8C4210C88D5005FD200 /* Controller */ = {
@@ -104,6 +104,14 @@
 				843FB8B3210C85EA005FD200 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		84ACCF4F210D8D2A008A4874 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				844FCAA7210D0E3C001A48BE /* Constants.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

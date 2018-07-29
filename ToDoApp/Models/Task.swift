@@ -18,7 +18,6 @@ class Task {
         self.done = done
     }
 
-    
     init?(dictionary: JSON) {
         let _id = dictionary["_id"] as? String ?? ""
         let name = dictionary["name"] as? String ?? ""
